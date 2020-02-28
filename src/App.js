@@ -4,6 +4,8 @@ import service from './storedata.json'
 import StoreItem from './components/StoreItem'
 import Pagination from './components/Pagination';
 
+import {Router,Switch,Route} from "react-router-dom";
+
 import AddModal from './components/AddModal'
 
 function App() {
@@ -15,9 +17,11 @@ function App() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = service.slice(indexOfFirstPost, indexOfLastPost);
-  console.log(indexOfFirstPost, indexOfLastPost, currentPage)
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    console.log(pageNumber," <<<")
+    return setCurrentPage(pageNumber)
+  };
 
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -31,25 +35,25 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1>
-        Mağazalar 
-        <button onClick={handleAdd} className="btn btn-primary btn-md new-store">Yeni mağaza ekle</button>
-      </h1>
+      <div className="container">
+        <h1>
+          Mağazalar 
+          <button onClick={handleAdd} className="btn btn-primary btn-md add-new-store">Yeni mağaza ekle</button>
+        </h1>
 
-      {currentPosts.map(item => (
-        <StoreItem item={item} key={item.storeId} service={service} />
-      ))}
+        {currentPosts.map(item => (
+          <StoreItem item={item} key={item.storeId} service={service} />
+        ))}
 
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={service.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={service.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
 
-      <AddModal service={service} show={showAddModal} handleClose={handleClose}></AddModal>
-    </div>
+        <AddModal service={service} show={showAddModal} handleClose={handleClose}></AddModal>
+      </div>
   );
 }
 

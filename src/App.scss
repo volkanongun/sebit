@@ -1,15 +1,8 @@
-html{
-	scroll-behavior: smooth;
-}
-
-h1{
-	
-}
 
 .storeItem{
 	display: flex;
 	flex-direction: column;
-
+	padding: 1rem;
 	margin: 2rem 0;
 
 	span{
@@ -102,9 +95,10 @@ h1{
 	}
 }
 
-.new-store{
+.add-new-store{
 	float:right;
 	margin: 1rem;
+	margin-right: 4.2rem;
 }
 
 @media screen and (min-width: 375px){
