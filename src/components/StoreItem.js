@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import DetailsModal from './DetailsModal'
 import UpdateModal from './UpdateModal'
 import DeleteModal from './DeleteModal'
+import { GlobalContext } from '../context/GlobalState'
 
-const StoreItem = ({ item, service }) => {
+const StoreItem = ({ item }) => {
 
 	const [showDetailsModal, setShowDetailsModal] = useState(false);
 	const [showUpdateModal, setShowUpdateModal] = useState(false);
 	const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+	const {stores} = useContext(GlobalContext)
 
 	const handleDetails = function(id){
 		console.log(id, "handleDetails")
@@ -19,8 +22,8 @@ const StoreItem = ({ item, service }) => {
 		setShowUpdateModal(true);
 	}
 
-	const handleDelete = function(id){
-		console.log(id, "handleDelete")
+	const handleDelete = function(storeId){
+		console.log(storeId, "handleDelete")
 		setShowDeleteModal(true);
 	}
 
@@ -36,6 +39,7 @@ const StoreItem = ({ item, service }) => {
 			<div><span>Müşteri Adı:</span> {item.storeTitle}</div>
 			<div><span>Müşteri Kodu :</span> {item.storeId}</div>
 			<div><span>Açıklama :</span> {item.storeDesc.length > 100 ? item.storeDesc.substring(0, 100) : item.storeDesc}</div>
+
 			<div>
 				<button className="btn btn-sm btn-primary" onClick={() => handleDetails(item.storeId)}>Detaylar</button>&nbsp;
 				<button className="btn btn-sm btn-primary" onClick={() => handleUpdate(item.storeId)}>Güncelle</button>&nbsp;
@@ -44,8 +48,7 @@ const StoreItem = ({ item, service }) => {
 
 			<DetailsModal item={item} show={showDetailsModal} handleClose={handleClose}></DetailsModal>
 			<UpdateModal item={item} show={showUpdateModal} handleClose={handleClose}></UpdateModal>
-			<DeleteModal service={service} item={item} show={showDeleteModal} handleClose={handleClose}></DeleteModal>
-			
+			<DeleteModal item={item} show={showDeleteModal} handleClose={handleClose}></DeleteModal>
 		</div>
 	)
 }

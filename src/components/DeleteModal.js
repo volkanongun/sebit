@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-const DeleteModal = ({ handleClose, show, item, service }) => {
+import { GlobalContext } from '../context/GlobalState'
+
+const DeleteModal = ({ handleClose, show, item }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const handleGiveup = function () {
   	handleClose()
   }
 
-  const handleDelete = function () {
-	service.filter(i => i.storeId === item.storeId)
-	console.log(service.filter(i => i.storeId !== item.storeId))
-  }
+  const {deleteStore} = useContext(GlobalContext)
 
   return (
     <div className={showHideClassName}>
@@ -22,7 +21,7 @@ const DeleteModal = ({ handleClose, show, item, service }) => {
     		<div className="overflow overflow-delete details">
 				<p>Mağazayı silmek istediğinize emin misiniz?</p>
 
-				<button className="btn btn-primary btn-sm" onClick={handleDelete}>Onayla</button> &nbsp;
+				<button className="btn btn-primary btn-sm" onClick={() => {handleClose(); return deleteStore(item.storeId)}}>Onayla</button> &nbsp;
 				<button className="btn btn-secondary btn-sm" onClick={handleGiveup}>Vazgeç</button>
 		    </div>
     	</div>
