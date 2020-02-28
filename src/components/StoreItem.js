@@ -4,7 +4,7 @@ import UpdateModal from './UpdateModal'
 import DeleteModal from './DeleteModal'
 import { GlobalContext } from '../context/GlobalState'
 
-const StoreItem = ({ item }) => {
+const StoreItem = ({ item, currentPage }) => {
 
 	const [showDetailsModal, setShowDetailsModal] = useState(false);
 	const [showUpdateModal, setShowUpdateModal] = useState(false);

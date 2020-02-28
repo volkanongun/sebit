@@ -5,9 +5,7 @@ import Pagination from './components/Pagination';
 
 import AddModal from './components/AddModal'
 
-import { GlobalProvider } from './context/GlobalState'
-
-import { GlobalContext } from './context/GlobalState'
+import { GlobalProvider, GlobalContext } from './context/GlobalState'
 
 function App() {
 
@@ -23,9 +21,6 @@ function App() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const [showAddModal, setShowAddModal] = useState(false);
-
-  console.log(currentPosts, " π")
-  console.log(stores, " ∆")
 
   const handleAdd = function(){
     console.log("handleAdd");
@@ -44,8 +39,8 @@ function App() {
             <button onClick={handleAdd} className="btn btn-primary btn-md add-new-store">Yeni mağaza ekle</button>
           </h1>
 
-            {stores.map(item => (
-              <StoreItem item={item} key={item.storeId} />
+            {currentPosts.map(item => (
+              <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
             ))} 
 
           <Pagination
