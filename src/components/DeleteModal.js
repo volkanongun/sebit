@@ -20,7 +20,7 @@ const DeleteModal = ({ handleClose, show, item, service }) => {
     		<button onClick={handleClose} className="btn btn-sm btn-primary close-btn" style={{top: "-70px"}}><strong>X</strong> close</button>
 
     		<div className="overflow overflow-delete details">
-				<p>Dükkanı silmek istediğinize emin misiniz?</p>
+				<p>Mağazayı silmek istediğinize emin misiniz?</p>
 
 				<button className="btn btn-primary btn-sm" onClick={handleDelete}>Onayla</button> &nbsp;
 				<button className="btn btn-secondary btn-sm" onClick={handleGiveup}>Vazgeç</button>

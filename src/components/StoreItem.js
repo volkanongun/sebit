@@ -45,6 +45,7 @@ const StoreItem = ({ item, service }) => {
 			<DetailsModal item={item} show={showDetailsModal} handleClose={handleClose}></DetailsModal>
 			<UpdateModal item={item} show={showUpdateModal} handleClose={handleClose}></UpdateModal>
 			<DeleteModal service={service} item={item} show={showDeleteModal} handleClose={handleClose}></DeleteModal>
+			
 		</div>
 	)
 }
