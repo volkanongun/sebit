@@ -21,7 +21,74 @@ h1{
 		margin-bottom: 1rem
 	}
 
-	border-bottom: 1px solid #dadada
+	border-bottom: 1px solid #efefef;
+
+	&:hover{
+		background: #efefef;
+	}
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  padding: 4rem;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.close-btn{
+    position: absolute;
+    top: -200px;
+    z-index: 1;
+    transform : translate(-50%, -50%);
+}
+
+.close-btn-mod{
+    position: absolute;
+    top: -100px;
+    z-index: 1;
+    transform : translate(-50%, -50%);
+}
+
+.overflow{
+  overflow: scroll;
+  height: 400px;
+  position:fixed;
+  background: white;
+  border-radius: 10px;
+  width: 60%;
+  transform: translate(-50%,-50%);
+}
+
+.overflow-mod{
+  overflow: scroll;
+  height: 200px;
+  position:fixed;
+  background: white;
+  border-radius: 10px;
+  width: 60%;
+  transform: translate(-50%,-50%); 
+}
+
+.modal-holder{
+  width: 60%;
+  top:50%;
+  left:50%;
+  position: fixed;
 }
 
 @media screen and (min-width: 375px){
@@ -45,7 +112,7 @@ h1{
 		flex-wrap: nowrap;
 		align-content: stretch;
 		div{
-			min-width: 26%;
+			min-width: 20%;
 		}
 	}	
 

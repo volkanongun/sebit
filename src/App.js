@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="container">
       {service.map(item => (
-        <StoreItem item={item} key={item.storeId}/>
+        <StoreItem item={item} key={item.storeId} />
       ))}
     </div>
   );
