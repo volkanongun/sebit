@@ -8,7 +8,7 @@ const UpdateModal = ({ handleClose, show, item }) => {
 
     	<div className="modal-holder">
 
-    		<button onClick={handleClose} className="close-btn button"><strong>X</strong> close</button>
+    		<button onClick={handleClose} className="btn btn-sm btn-primary close-btn"><strong>X</strong> close</button>
 
     		<div className="overflow details">
 				<form>

@@ -3,7 +3,7 @@ import DetailsModal from './DetailsModal'
 import UpdateModal from './UpdateModal'
 import DeleteModal from './DeleteModal'
 
-const StoreItem = ({ item }) => {
+const StoreItem = ({ item, service }) => {
 
 	const [showDetailsModal, setShowDetailsModal] = useState(false);
 	const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -44,7 +44,7 @@ const StoreItem = ({ item }) => {
 
 			<DetailsModal item={item} show={showDetailsModal} handleClose={handleClose}></DetailsModal>
 			<UpdateModal item={item} show={showUpdateModal} handleClose={handleClose}></UpdateModal>
-			<DeleteModal item={item} show={showDeleteModal} handleClose={handleClose}></DeleteModal>
+			<DeleteModal service={service} item={item} show={showDeleteModal} handleClose={handleClose}></DeleteModal>
 		</div>
 	)
 }
