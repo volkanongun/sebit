@@ -2,16 +2,51 @@ h1{
 	
 }
 
+.storeItem{
+	display: flex;
+	flex-direction: column;
+
+	margin: 2rem 0;
+
+	span{
+		font-weight:bold;
+		display: block;
+	}
+
+	img{
+		margin-bottom: 1rem
+	}
+
+	> div {
+		margin-bottom: 1rem
+	}
+
+	border-bottom: 1px solid #dadada
+}
 
 @media screen and (min-width: 375px){
-	body{
-		background: red
-	}
+	// body{
+	// 	background: red
+	// }
 }
 
 
 @media screen and (min-width: 768px){
 	body{
-		background: green
+		// background: green;
+		overflow-x: hidden;
 	}
+
+	.storeItem{
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1rem;
+		margin-right: 2rem;
+		flex-wrap: nowrap;
+		align-content: stretch;
+		div{
+			min-width: 26%;
+		}
+	}	
+
 }

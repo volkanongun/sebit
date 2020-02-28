@@ -6,11 +6,9 @@ import StoreItem from './components/StoreItem'
 function App() {
   return (
     <div className="container">
-      <div>
-        {service.map(item => (
-          <StoreItem item={item} key={item.storeId}/>
-        ))}
-      </div>
+      {service.map(item => (
+        <StoreItem item={item} key={item.storeId}/>
+      ))}
     </div>
   );
 }
