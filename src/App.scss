@@ -101,6 +101,12 @@
 	margin-right: 4.2rem;
 }
 
+.add-form{
+	form > div{
+		margin-bottom: 1rem
+	}
+}
+
 @media screen and (min-width: 375px){
 	// body{
 	// 	background: red

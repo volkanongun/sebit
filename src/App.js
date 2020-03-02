@@ -1,15 +1,13 @@
-import React, {useState,useContext} from 'react';
+import React, {useState} from 'react';
 import './App.scss'; 
 import StoreItem from './components/StoreItem'
 import Pagination from './components/Pagination';
 
+import stores from './storedata.json'  
+
 import AddModal from './components/AddModal'
 
-import { GlobalProvider, GlobalContext } from './context/GlobalState'
-
 function App() {
-
-  const {stores} = useContext(GlobalContext);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(20);
@@ -32,27 +30,25 @@ function App() {
   }
 
   return (
-      <GlobalProvider>
-        <div className="container">
-          <h1>
-            Mağazalar 
-            <button onClick={handleAdd} className="btn btn-primary btn-md add-new-store">Yeni mağaza ekle</button>
-          </h1>
+      <div className="container">
+        <h1>
+          Mağazalar 
+          <button onClick={handleAdd} className="btn btn-primary btn-md add-new-store">Yeni mağaza ekle</button>
+        </h1>
 
-            {currentPosts.map(item => (
-              <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
-            ))} 
+          {currentPosts.map(item => (
+            <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
+          ))} 
 
-          <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={stores.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={stores.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
 
-          <AddModal stores={stores} show={showAddModal} handleClose={handleClose}></AddModal>
-        </div>
-      </GlobalProvider>
+        <AddModal stores={stores} show={showAddModal} handleClose={handleClose}></AddModal>
+      </div>
   );
 }
 

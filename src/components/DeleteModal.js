@@ -1,6 +1,4 @@
-import React, {useContext} from 'react';
-
-import { GlobalContext } from '../context/GlobalState'
+import React from 'react';
 
 const DeleteModal = ({ handleClose, show, item }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -8,8 +6,6 @@ const DeleteModal = ({ handleClose, show, item }) => {
   const handleGiveup = function () {
   	handleClose()
   }
-
-  const {deleteStore} = useContext(GlobalContext)
 
   return (
     <div className={showHideClassName}>
@@ -21,7 +17,7 @@ const DeleteModal = ({ handleClose, show, item }) => {
     		<div className="overflow overflow-delete details">
 				<p>Mağazayı silmek istediğinize emin misiniz?</p>
 
-				<button className="btn btn-primary btn-sm" onClick={() => {handleClose(); return deleteStore(item.storeId)}}>Onayla</button> &nbsp;
+				<button className="btn btn-primary btn-sm" onClick={() => {handleClose()}}>Onayla</button> &nbsp;
 				<button className="btn btn-secondary btn-sm" onClick={handleGiveup}>Vazgeç</button>
 		    </div>
     	</div>

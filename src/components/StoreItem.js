@@ -1,16 +1,13 @@
-import React, {useState,useContext} from 'react'
+import React, {useState} from 'react'
 import DetailsModal from './DetailsModal'
 import UpdateModal from './UpdateModal'
 import DeleteModal from './DeleteModal'
-import { GlobalContext } from '../context/GlobalState'
 
 const StoreItem = ({ item, currentPage }) => {
 
 	const [showDetailsModal, setShowDetailsModal] = useState(false);
 	const [showUpdateModal, setShowUpdateModal] = useState(false);
 	const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-	const {stores} = useContext(GlobalContext)
 
 	const handleDetails = function(id){
 		console.log(id, "handleDetails")
