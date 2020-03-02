@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {addStore} from '../actions/stores';
 
-const AddModal = ({ handleClose, show, item }) => {
+const AddModal = ({ handleClose, show, item, addStore }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const [storeTitle, setStoreTitle] = useState("")
@@ -11,18 +13,7 @@ const AddModal = ({ handleClose, show, item }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newStore = {
-      storeId: Math.floor(Math.random() * 100000000),
-      storeTitle,
-      "storeLogoURL" : "",
-      storeDesc,
-      memberId,
-      "displayLogo": 1,
-      "storeOnWait": null,
-      "storeType": null
-    }
-
-    console.log(newStore)
+    addStore(storeTitle,storeDesc,memberId,storeType);
     handleClose();
   }
 
@@ -56,4 +47,4 @@ const AddModal = ({ handleClose, show, item }) => {
   );
 };
 
-export default AddModal;
+export default connect(null, {addStore})(AddModal);

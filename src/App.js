@@ -7,6 +7,9 @@ import stores from './storedata.json'
 
 import AddModal from './components/AddModal'
 
+import {Provider} from 'react-redux'
+import store from './store'
+
 function App() {
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,6 +33,7 @@ function App() {
   }
 
   return (
+    <Provider store={store}>
       <div className="container">
         <h1>
           Mağazalar 
@@ -49,6 +53,7 @@ function App() {
 
         <AddModal stores={stores} show={showAddModal} handleClose={handleClose}></AddModal>
       </div>
+    </Provider>
   );
 }
 
