@@ -21,8 +21,6 @@ export const addStore = (storeTitle,storeDesc,memberId,storeType) => dispatch =>
       storeType
     }
 
-    console.log(newStore);
-
     dispatch({
     	type: ADD_STORE,
     	payload: newStore

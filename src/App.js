@@ -8,7 +8,7 @@ import Stores from './components/Stores'
 import {Provider} from 'react-redux'
 import store from './store'
 
-function App({getStores}) {
+function App() {
 
   const [showAddModal, setShowAddModal] = useState(false);
 

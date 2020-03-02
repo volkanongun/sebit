@@ -16,7 +16,7 @@ const Stores = ({getStores, stores}) => {
 	useEffect(() => {
 		getStores();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentPosts])
+	}, [])
 
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -24,8 +24,8 @@ const Stores = ({getStores, stores}) => {
 	return (
 		<div>
 			<div>{currentPosts ? currentPosts.map(item => (
-				            <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
-				          )) : null}</div>
+	            <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
+	          )) : null}</div>
 			
 			<Pagination
 	          postsPerPage={postsPerPage}

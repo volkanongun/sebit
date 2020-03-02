@@ -31,7 +31,7 @@ const AddModal = ({ handleClose, show, item, addStore }) => {
               <input className="form-control" type="text" value={storeTitle} required title="Zorunlu alan" onChange={(e) => setStoreTitle(e.target.value)} placeholder="İsim girin..." />
             </div>
             <div>
-              <input className="form-control" type="text" value={memberId} required title="Zorunlu alan" onChange={(e) => setMemberId(e.target.value)} placeholder="Müşteri kodunu girin..." />
+              <input className="form-control" type="number" value={memberId} required title="Zorunlu alan" onChange={(e) => setMemberId(e.target.value)} placeholder="Müşteri kodunu girin..." />
             </div>
             <div>
               <input className="form-control" type="text" value={storeType} required title="Zorunlu alan" onChange={(e) => setStoreType(e.target.value)} placeholder="Mağaza Tipini girin..." />
