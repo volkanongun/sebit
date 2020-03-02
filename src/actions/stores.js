@@ -17,6 +17,6 @@ export const addStore = (storeTitle,storeDesc,memberId,storeType) => dispatch =>
 
     dispatch({
     	type: ADD_STORE,
-    	payload: {newStore}
+    	payload: newStore
     })
 }

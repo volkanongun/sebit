@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+
 import {addStore} from '../actions/stores';
 
 const AddModal = ({ handleClose, show, item, addStore }) => {

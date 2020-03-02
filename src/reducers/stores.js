@@ -1,6 +1,8 @@
 import { ADD_STORE,DELETE_STORE,MODIFY_STORE} from '../actions/types'
 
-const initialState = [];
+import stores from '../storedata.json' 
+
+const initialState = stores;
 
 export default function (state = initialState, action) {
 	const {type, payload} = action
