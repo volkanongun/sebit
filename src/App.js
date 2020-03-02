@@ -1,25 +1,14 @@
 import React, {useState} from 'react';
 import './App.scss'; 
-import StoreItem from './components/StoreItem'
-import Pagination from './components/Pagination';
-
-import stores from './storedata.json'  
 
 import AddModal from './components/AddModal'
+
+import Stores from './components/Stores'
 
 import {Provider} from 'react-redux'
 import store from './store'
 
-function App() {
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
-  const currentPosts = stores.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+function App({getStores}) {
 
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -40,18 +29,9 @@ function App() {
           <button onClick={handleAdd} className="btn btn-primary btn-md add-new-store">Yeni mağaza ekle</button>
         </h1>
 
-          {currentPosts.map(item => (
-            <StoreItem item={item} key={item.storeId} currentPage={currentPage}/>
-          ))} 
+        <Stores/>
 
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={stores.length}
-          paginate={paginate}
-          currentPage={currentPage}
-        />
-
-        <AddModal stores={stores} show={showAddModal} handleClose={handleClose}></AddModal>
+        <AddModal show={showAddModal} handleClose={handleClose}></AddModal>
       </div>
     </Provider>
   );

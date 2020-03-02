@@ -1,8 +1,6 @@
-import { ADD_STORE,DELETE_STORE,MODIFY_STORE} from '../actions/types'
+import { ADD_STORE, DELETE_STORE, MODIFY_STORE, GET_STORES } from '../actions/types'
 
-import stores from '../storedata.json' 
-
-const initialState = stores;
+const initialState = {};
 
 export default function (state = initialState, action) {
 	const {type, payload} = action
@@ -14,6 +12,8 @@ export default function (state = initialState, action) {
 			return state.filter(store => store.storeId !== payload)
 		case MODIFY_STORE:
 			return state
+		case GET_STORES:
+			return payload
 		default:
 			return state
 	}
