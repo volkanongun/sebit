@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {deleteStore} from '../actions/stores'
 
-const DeleteModal = ({ handleClose, show, item }) => {
+const DeleteModal = ({ handleClose, show, item, deleteStore }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   const handleGiveup = function () {
@@ -17,7 +19,7 @@ const DeleteModal = ({ handleClose, show, item }) => {
     		<div className="overflow overflow-delete details">
 				<p>Mağazayı silmek istediğinize emin misiniz?</p>
 
-				<button className="btn btn-primary btn-sm" onClick={() => {handleClose()}}>Onayla</button> &nbsp;
+				<button className="btn btn-primary btn-sm" onClick={() => {deleteStore(item.storeId); return handleClose()}}>Onayla</button> &nbsp;
 				<button className="btn btn-secondary btn-sm" onClick={handleGiveup}>Vazgeç</button>
 		    </div>
     	</div>
@@ -26,4 +28,4 @@ const DeleteModal = ({ handleClose, show, item }) => {
   );
 };
 
-export default DeleteModal;
+export default connect(null,{deleteStore})(DeleteModal);

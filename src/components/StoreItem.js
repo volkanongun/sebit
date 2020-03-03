@@ -32,7 +32,10 @@ const StoreItem = ({ item, currentPage }) => {
 
 	return (
 		<div className="storeItem">
-			<div><span>Logo:</span> <img alt={item.storeTitle} src={item.storeLogoURL}/></div>
+			<div>
+				<span>Logo:</span> 
+				{item.storeLogoURL ? <img alt={item.storeTitle} src={item.storeLogoURL}/> : <img width="156px" alt="dummy" height="93px" style={{"background":"#efefef"}}/>}
+			</div>
 			<div><span>Müşteri Adı:</span> {item.storeTitle}</div>
 			<div><span>Müşteri Kodu :</span> {item.storeId}</div>
 			<div><span>Açıklama :</span> {item.storeDesc.length > 100 ? item.storeDesc.substring(0, 100) : item.storeDesc}</div>

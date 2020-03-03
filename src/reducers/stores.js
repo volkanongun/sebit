@@ -12,7 +12,8 @@ export default function (state = initialState, action) {
 			console.log([...state, payload], " ∆");
 			return [...state, payload]
 		case DELETE_STORE:
-			return state.filter(store => store.storeId !== payload)
+			state = state.filter(store => store.storeId !== payload)
+			return state;
 		case MODIFY_STORE:
 			return state
 		default:

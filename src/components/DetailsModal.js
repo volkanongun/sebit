@@ -11,7 +11,7 @@ const DetailsModal = ({ handleClose, show, item }) => {
     		<button onClick={handleClose} className="btn btn-sm btn-primary close-btn"><strong>X</strong> close</button>
 
     		<div className="overflow details">
-				<div><img alt={item.storeTitle} src={item.storeLogoURL}/></div>
+				<div>{item.storeLogoURL ? <img alt={item.storeTitle} src={item.storeLogoURL}/> : <img width="156px" alt="dummy" height="93px" style={{"background":"#efefef"}}/>}</div>
 				<div><span>Müşteri Adı:</span> {item.storeTitle}</div>
 				<div><span>Müşteri Kodu :</span> {item.storeId}</div>
 				<div><span>Açıklama :</span> {item.storeDesc}</div>

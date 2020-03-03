@@ -11,14 +11,14 @@ import stores from '../storedata.json'
 export const addStore = (storeTitle,storeDesc,memberId,storeType) => dispatch => {
 
 	const newStore = {
-      storeId: Math.floor(Math.random() * 100000000),
+      "storeId": Math.floor(Math.random() * 100000000),
       storeTitle,
       storeDesc,
       memberId,
+      storeType,
       "storeLogoURL" : "",
       "displayLogo": 1,
-      "storeOnWait": null,
-      storeType
+      "storeOnWait": null
     }
 
     dispatch({
@@ -29,12 +29,10 @@ export const addStore = (storeTitle,storeDesc,memberId,storeType) => dispatch =>
 
 export const getStores = () => async dispatch => {
 
-  const st = await stores;
-
   try{
     dispatch({
       type: GET_STORES,
-      payload: st
+      payload: await stores
     })
   }catch(err){
     dispatch({
@@ -43,5 +41,12 @@ export const getStores = () => async dispatch => {
     })
   }
   
+}
 
+export const deleteStore = (id) => dispatch => {
+  console.log(id)
+  dispatch({
+    type: DELETE_STORE,
+    payload: id
+  })
 }
