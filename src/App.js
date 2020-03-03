@@ -13,7 +13,7 @@ function App() {
   const [showAddModal, setShowAddModal] = useState(false);
 
   const handleAdd = function(){
-    console.log("handleAdd");
+    // console.log("handleAdd");
     setShowAddModal(true);
   }
 

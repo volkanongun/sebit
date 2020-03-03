@@ -10,17 +10,17 @@ const StoreItem = ({ item, currentPage }) => {
 	const [showDeleteModal, setShowDeleteModal] = useState(false);
 
 	const handleDetails = function(id){
-		console.log(id, "handleDetails")
+		// console.log(id, "handleDetails")
 		setShowDetailsModal(true);
 	}
 
 	const handleUpdate = function(id){
-		console.log(id, "handleUpdate")
+		// console.log(id, "handleUpdate")
 		setShowUpdateModal(true);
 	}
 
 	const handleDelete = function(storeId){
-		console.log(storeId, "handleDelete")
+		// console.log(storeId, "handleDelete")
 		setShowDeleteModal(true);
 	}
 
