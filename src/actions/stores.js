@@ -3,7 +3,7 @@ import {
   DELETE_STORE, 
   MODIFY_STORE, 
   GET_STORES,
-  GET_STORES_ERROR
+  GET_STORES_ERROR,
 } from './types';
 
 import stores from '../storedata.json'
@@ -44,9 +44,15 @@ export const getStores = () => async dispatch => {
 }
 
 export const deleteStore = (id) => dispatch => {
-  console.log(id)
   dispatch({
     type: DELETE_STORE,
     payload: id
+  })
+}
+
+export const modifyStore = (store) => dispatch => {
+  dispatch({
+    type: MODIFY_STORE,
+    payload: store
   })
 }

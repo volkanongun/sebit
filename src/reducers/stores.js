@@ -9,8 +9,7 @@ export default function (state = initialState, action) {
 		case GET_STORES:
 			return payload
 		case ADD_STORE:
-			console.log([...state, payload], " ∆");
-			return [...state, payload]
+			return [payload, ...state]
 		case DELETE_STORE:
 			state = state.filter(store => store.storeId !== payload)
 			return state;
